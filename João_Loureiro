@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    string fraseOriginal = "programar e divertido";
+    string fraseOculta = "____________________";
+    int tentativas = 0;
+
+    while (fraseOculta != fraseOriginal) {
+        char letra;
+        cout << "Frase: " << fraseOculta << endl;
+        cout << "Digite uma letra: ";
+        cin >> letra;
+
+        bool acertou = false;
+        for (int i = 0; i < fraseOriginal.size(); i++) {
+            if (fraseOriginal[i] == letra && fraseOculta[i] == '_') {
+                fraseOculta[i] = letra;
+                acertou = true;
+            }
+        }
+
+        cout << (acertou ? "Você acertou uma letra!" : "A letra não está na frase.") << endl;
+        tentativas++;
+    }
+
+    cout << "Parabéns! Você adivinhou a frase em " << tentativas << " tentativas!" << endl;
+    return 0;
+}
